@@ -34,7 +34,7 @@ const Dashboard = () => {
 
   return (
     <div className='dashboard-main'>
-      <h1 className='mb-12 font-extrabold text-7xl text-gp'>Welcome to Dashboard !</h1>
+      <h1 className='mb-12 font-extrabold text-5xl text-gp'>Welcome to Dashboard !</h1>
       <p className='text-center mb-8 text-gr text-6xl py-8'>{ data.msg } welcome to Athang's Highway Delite Assignment ! <br/><br/>{ data.luckyNumber }</p>
       <Link to="/logout" className="logout-button">Logout</Link>
     </div>
