@@ -88,9 +88,7 @@ const Login = () => {
                     Remember for 30 days
                   </label>
                 </div>
-                <a className="forgot-pass-link" onClick={(e) => e.preventDefault()}>
-  Forgot password?
-</a>
+                
               </div>
               <div className="login-center-buttons">
                 <button type="submit">Log In</button>

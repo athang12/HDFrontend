@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import "../styles/Dashboard.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -9,12 +9,11 @@ const Dashboard = () => {
   const [ data, setData ] = useState({});
   const navigate = useNavigate();
 
-  const fetchLuckyNumber = async () => {
-
+  const fetchLuckyNumber = useCallback(async () => {
     let axiosConfig = {
       headers: {
         'Authorization': `Bearer ${token}`
-    }
+      }
     };
 
     try {
@@ -23,10 +22,8 @@ const Dashboard = () => {
     } catch (error) {
       toast.error(error.message);
     }
-  }
+  }, [token]);
 
-
-  
   useEffect(() => {
     fetchLuckyNumber();
     if (token === "") {
