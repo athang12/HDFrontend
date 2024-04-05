@@ -14,7 +14,7 @@ const Login = () => {
   const [ showPassword, setShowPassword ] = useState(false);
   const navigate = useNavigate();
   // const [otp, setOTP] = useState("");
-  const token = useState(JSON.parse(localStorage.getItem("auth")) || "");
+  const token = JSON.parse(localStorage.getItem("auth")) || "";
 
   // const generateOTP = () => {
   //   const digits = '0123456789';
@@ -82,7 +82,7 @@ const Login = () => {
         };
         try{
           
-         await axios.post("https://samplehdassign-production-bd43.up.railway.app/api/v1/register", formData);
+         await axios.post("https://samplehdassign.onrender.com/api/v1/register", formData);
          toast.success("Verify yourself");
 
          navigate('/verify', { state: { data: email } });

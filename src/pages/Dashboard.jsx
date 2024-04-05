@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const Dashboard = () => {
-  const token = useState(JSON.parse(localStorage.getItem("auth")) || "");
+  const token = JSON.parse(localStorage.getItem("auth")) || "";
   const [ data, setData ] = useState({});
   const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ const Dashboard = () => {
     };
 
     try {
-      const response = await axios.get("https://samplehdassign-production-bd43.up.railway.app/api/v1/dashboard", axiosConfig);
+      const response = await axios.get("https://samplehdassign.onrender.com/api/v1/dashboard", axiosConfig);
       setData({ msg: response.data.msg, luckyNumber: response.data.secret });
     } catch (error) {
       toast.error(error.message);

@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { useLocation } from 'react-router-dom';
 
 const Verify = () => {
-    const token= useState(JSON.parse(localStorage.getItem("auth")) || "");
+    const token= JSON.parse(localStorage.getItem("auth")) || "";
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const Verify = () => {
     e.preventDefault();
     try {
       // Make a request to your backend to verify the OTP
-      const response = await axios.post("https://samplehdassign-production-bd43.up.railway.app/api/v1/verify", {otp,email});
+      const response = await axios.post("https://samplehdassign.onrender.com/api/v1/verify", {otp,email});
 
       // Assuming the backend responds with a success message upon successful verification
       if (response.data.success) {

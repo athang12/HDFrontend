@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const token = useState(JSON.parse(localStorage.getItem("auth")) || "");
+  const token = JSON.parse(localStorage.getItem("auth")) || "";
   const navigate = useNavigate();
 
 
@@ -26,7 +26,7 @@ const Login = () => {
       };
       try {
         const response = await axios.post(
-          "https://samplehdassign-production-bd43.up.railway.app/api/v1/login",
+          "https://samplehdassign.onrender.com/api/v1/login",
           formData
         );
         localStorage.setItem('auth', JSON.stringify(response.data.token));
