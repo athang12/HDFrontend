@@ -7,11 +7,11 @@ const Logout = () => {
     const navigate = useNavigate();
     
     useEffect(() => {
-        localStorage.removeItem("auth");
-        setTimeout(() => {
-            navigate("/");
-        }, 3000);
-    }, []);
+      localStorage.removeItem("auth");
+      setTimeout(() => {
+          navigate("/");
+      }, 3000);
+  }, [navigate]);
 
   return (
     <div className='logout-main'>

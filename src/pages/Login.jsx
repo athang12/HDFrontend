@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Image from "../assets/signin.png";
-import Logo from "../assets/logo.png";
-import GoogleSvg from "../assets/icons8-google.svg";
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
 import "../styles/Login.css";
@@ -11,7 +9,7 @@ import { toast } from "react-toastify";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [ token, setToken ] = useState(JSON.parse(localStorage.getItem("auth")) || "");
+  const token = useState(JSON.parse(localStorage.getItem("auth")) || "");
   const navigate = useNavigate();
 
 
@@ -44,11 +42,11 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if(token !== ""){
+    if (token !== "") {
       toast.success("You already logged in");
       navigate("/dashboard");
     }
-  }, []);
+  }, [token, navigate]);
 
   return (
     <div className="login-main">
@@ -90,9 +88,9 @@ const Login = () => {
                     Remember for 30 days
                   </label>
                 </div>
-                <a href="#" className="forgot-pass-link">
-                  Forgot password?
-                </a>
+                <a className="forgot-pass-link" onClick={(e) => e.preventDefault()}>
+  Forgot password?
+</a>
               </div>
               <div className="login-center-buttons">
                 <button type="submit">Log In</button>

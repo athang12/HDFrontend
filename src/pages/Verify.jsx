@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { useLocation } from 'react-router-dom';
 
 const Verify = () => {
-    const [ token, setToken ] = useState(JSON.parse(localStorage.getItem("auth")) || "");
+    const token= useState(JSON.parse(localStorage.getItem("auth")) || "");
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
 
@@ -47,7 +47,7 @@ const Verify = () => {
       toast.success("You already logged in");
       navigate("/dashboard");
     }
-  }, []);
+  }, [navigate, token]);
 
   return (
     <div className="text-center">

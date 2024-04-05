@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const Dashboard = () => {
-  const [ token, setToken ] = useState(JSON.parse(localStorage.getItem("auth")) || "");
+  const token = useState(JSON.parse(localStorage.getItem("auth")) || "");
   const [ data, setData ] = useState({});
   const navigate = useNavigate();
 
@@ -29,11 +29,11 @@ const Dashboard = () => {
   
   useEffect(() => {
     fetchLuckyNumber();
-    if(token === ""){
+    if (token === "") {
       navigate("/login");
       toast.warn("Please login first to access dashboard");
     }
-  }, [token]);
+  }, [token, fetchLuckyNumber, navigate]);
 
   return (
     <div className='dashboard-main'>

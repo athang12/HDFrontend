@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Image from "../assets/signup.png";
-import Logo from "../assets/logo.png";
-import GoogleSvg from "../assets/icons8-google.svg";
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
 import "../styles/Register.css";
@@ -16,7 +14,7 @@ const Login = () => {
   const [ showPassword, setShowPassword ] = useState(false);
   const navigate = useNavigate();
   // const [otp, setOTP] = useState("");
-  const [ token, setToken ] = useState(JSON.parse(localStorage.getItem("auth")) || "");
+  const token = useState(JSON.parse(localStorage.getItem("auth")) || "");
 
   // const generateOTP = () => {
   //   const digits = '0123456789';
@@ -84,7 +82,7 @@ const Login = () => {
         };
         try{
           
-        const response = await axios.post("https://samplehdassign-production-bd43.up.railway.app/api/v1/register", formData);
+         await axios.post("https://samplehdassign-production-bd43.up.railway.app/api/v1/register", formData);
          toast.success("Verify yourself");
 
          navigate('/verify', { state: { data: email } });
@@ -108,7 +106,7 @@ const Login = () => {
       toast.success("You already logged in");
       navigate("/dashboard");
     }
-  }, []);
+  }, [navigate, token]);
 
   
   return (
