@@ -134,7 +134,7 @@ const Login = () => {
                 
               </div>
               <div className="register-center-buttons text-gr">
-              {loading ? (<div>Please wait for 10 seconds <br/> while we verify your credentials...</div>) : (<button type="submit">Sign Up</button>)}
+              {loading ? (<div>Please wait for 4-5 seconds <br/> while we verify your credentials...</div>) : (<button type="submit">Sign Up</button>)}
                 
               </div>
             </form>
